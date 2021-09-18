@@ -1,0 +1,27 @@
+#include <iostream>
+#include <limits.h>
+using namespace std;
+
+// Número de vertices en el gráfico relacionado. 
+#define NumberOfVertices 7
+
+// Función para encontrar el vertice de menor distancia desde el grupo de vertices aun no incluidos en el arbol de menor magnitud. 
+int minimumshortestDistanceance(int shortestDistance[], bool vertexSet[])
+{
+
+	// Inicializamos (min value)
+	int min = INT_MAX, min_index;
+
+	for (int v = 0; v < NumberOfVertices; v++)
+		if (vertexSet[v] == false && shortestDistance[v] <= min)
+			min = shortestDistance[v], min_index = v;
+
+	return min_index;
+}
+
+// Una función para imprimir la matriz de distancia construida.
+void printVal(int shortestDistance[])
+{
+	for (int i = 0; i < NumberOfVertices; i++)
+		cout << "Vertice: " << i << " -> Distancia desde el vertice inicial: " << shortestDistance[i] << endl << endl;
+}
